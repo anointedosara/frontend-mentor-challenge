@@ -1,58 +1,36 @@
 var i = 0;
+let numberSelected = 0
 
 function myBody() {
-    if (i >= 0) {
-        document.getElementById("body").style.display = "none"
-        document.getElementById("div6").style.display = "block"
+    if (numberSelected > 0) {
+        document.getElementById("body").classList.remove("show")
+        document.getElementById("body").classList.add("hide")
+        document.getElementById("div6").classList.add("show")
+        document.getElementById("div6").classList.remove("hide")
+    } else {
+        alert("You must click a number between 0-5");
     }
+
+
+    document.querySelector(".p3").innerHTML = `You selected ${numberSelected} out of 5`
 }
+
 
 function myFunction() {
-    if (i >= 0) {
-        document.getElementById("div1").style.background = "rgba(255,255,255,0.3)"
-        document.getElementById("div2").style.background = "rgba(98, 97, 97, 0.3)"
-        document.getElementById("div3").style.background = "rgba(98, 97, 97, 0.3)"
-        document.getElementById("div4").style.background = "rgba(98, 97, 97, 0.3)"
-        document.getElementById("div5").style.background = "rgba(98, 97, 97, 0.3)"
+
+    const arr = document.getElementsByClassName("div4")
+    for (let i = 0; i <= arr.length; i++) {
+        arr[i].addEventListener("click", () => {
+            numberSelected = i + 1
+            arr[i].classList.add("change")
+            for (let j = 0; j <= arr.length; j++) {
+                if (j !== i) {
+                    arr[j].classList.remove("change")
+                }
+            }
+        })
     }
+
 }
 
-function myFunctio() {
-    if (i >= 0) {
-        document.getElementById("div1").style.background = "rgba(98, 97, 97, 0.3)"
-        document.getElementById("div2").style.background = "rgba(255,255,255,0.3)"
-        document.getElementById("div3").style.background = "rgba(98, 97, 97, 0.3)"
-        document.getElementById("div4").style.background = "rgba(98, 97, 97, 0.3)"
-        document.getElementById("div5").style.background = "rgba(98, 97, 97, 0.3)"
-    }
-}
-
-function myFuncti() {
-    if (i >= 0) {
-        document.getElementById("div1").style.background = "rgba(98, 97, 97, 0.3)"
-        document.getElementById("div2").style.background = "rgba(98, 97, 97, 0.3)"
-        document.getElementById("div3").style.background = "rgba(255,255,255,0.3)"
-        document.getElementById("div4").style.background = "rgba(98, 97, 97, 0.3)"
-        document.getElementById("div5").style.background = "rgba(98, 97, 97, 0.3)"
-    }
-}
-
-function myFunct() {
-    if (i >= 0) {
-        document.getElementById("div1").style.background = "rgba(98, 97, 97, 0.3)"
-        document.getElementById("div2").style.background = "rgba(98, 97, 97, 0.3)"
-        document.getElementById("div3").style.background = "rgba(98, 97, 97, 0.3)"
-        document.getElementById("div4").style.background = "rgba(255,255,255,0.3)"
-        document.getElementById("div5").style.background = "rgba(98, 97, 97, 0.3)"
-    }
-}
-
-function myFunc() {
-    if (i >= 0) {
-        document.getElementById("div1").style.background = "rgba(98, 97, 97, 0.3)"
-        document.getElementById("div2").style.background = "rgba(98, 97, 97, 0.3)"
-        document.getElementById("div3").style.background = "rgba(98, 97, 97, 0.3)"
-        document.getElementById("div4").style.background = "rgba(98, 97, 97, 0.3)"
-        document.getElementById("div5").style.background = "rgba(255,255,255,0.3)"
-    }
-}
+myFunction()
