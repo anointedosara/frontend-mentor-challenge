@@ -8,13 +8,11 @@ function myBody() {
         document.getElementById("div6").classList.add("show")
         document.getElementById("div6").classList.remove("hide")
     } else {
-        alert("You must click a number between 0-5");
+        alert("You must click a number from 0-5");
     }
-
 
     document.querySelector(".p3").innerHTML = `You selected ${numberSelected} out of 5`
 }
-
 
 function myFunction() {
 
